@@ -1,22 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Interface } from 'readline';
+import { createSlice } from '@reduxjs/toolkit';
+import { Quiz } from '../types/quiz';
+import { quizThunks } from './quizThunks';
 
-export interface Quiz {
-    id: number,
-    title: string,
-    questions: MultipleChoiceQuestion[]
-}
-interface MultipleChoiceQuestion {
-    id: number,
-    question: string,
-    options: MultipleChoiceOption[],
-    answerID: number
-}
 
-interface MultipleChoiceOption {
-    id: number,
-    text: string
-}
+
 
 interface SliceState {
     quizzes: Quiz[]
@@ -28,10 +15,11 @@ const initialState: SliceState = {
 const quizSlice = createSlice({
     name: 'quiz',
     initialState,
-    reducers: {
-        addQuizzes: (state: SliceState, action: PayloadAction<Quiz[]>) => {
-            state.quizzes = state.quizzes.concat(action.payload)
-        }
+    reducers: {},
+    extraReducers: (builder) => {
+        builder.addCase(quizThunks.fetchQuizzes.fulfilled, (state, action) => {
+            state.quizzes.push(...action.payload)
+        })
     }
 });
 
