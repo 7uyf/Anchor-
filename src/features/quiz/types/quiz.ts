@@ -7,10 +7,18 @@ interface MultipleChoiceQuestion {
     id: number,
     question: string,
     options: MultipleChoiceOption[],
-    answerID: number
+    answerId: number
 }
 
-interface MultipleChoiceOption {
+export interface MultipleChoiceOption {
     id: number,
     text: string
+}
+
+export interface QuizAnswers {
+    quizId: number,
+    answers: {
+        questionId: number,
+        answerId: number
+    }[]
 }

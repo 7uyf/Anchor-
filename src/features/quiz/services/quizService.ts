@@ -27,7 +27,7 @@ const fetchQuizzes = async (): Promise<{ data: Quiz[] }> => ({
                         text: '2'
                     }
                 ],
-                answerID: 3
+                answerId: 3
             },
             {
                 id: 1,
@@ -50,7 +50,7 @@ const fetchQuizzes = async (): Promise<{ data: Quiz[] }> => ({
                         text: '8'
                     }
                 ],
-                answerID: 1
+                answerId: 1
             },
             {
                 id: 2,
@@ -73,7 +73,7 @@ const fetchQuizzes = async (): Promise<{ data: Quiz[] }> => ({
                         text: '4'
                     }
                 ],
-                answerID: 0
+                answerId: 0
             },
             {
                 id: 3,
@@ -96,7 +96,7 @@ const fetchQuizzes = async (): Promise<{ data: Quiz[] }> => ({
                         text: '6'
                     }
                 ],
-                answerID: 2
+                answerId: 2
             },
             {
                 id: 4,
@@ -119,7 +119,7 @@ const fetchQuizzes = async (): Promise<{ data: Quiz[] }> => ({
                         text: '15'
                     }
                 ],
-                answerID: 1
+                answerId: 1
             }
         ]
     }]
