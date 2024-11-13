@@ -52,6 +52,7 @@ const QuizComponent = ({ quiz, submit }: QuizProps) => {
     }
 
     const isForwardDisabled = answerId === null
+
     return (
         <Stack spacing={2} direction={'column'}>
             <FormControl >

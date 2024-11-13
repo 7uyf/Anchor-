@@ -2,9 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 import { Quiz } from '../types/quiz';
 import { quizThunks } from './quizThunks';
 
-
-
-
 interface SliceState {
     quizzes: Quiz[],
     isQuizzedFetched: boolean
