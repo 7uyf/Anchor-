@@ -54,7 +54,6 @@ const QuizComponent = ({ quiz, submit }: QuizProps) => {
     const isForwardDisabled = answerId === null
     return (
         <Stack spacing={2} direction={'column'}>
-            <Typography variant='h1'> the Quiz: {quiz.title}</Typography>
             <FormControl >
                 <FormLabel id="demo-radio-buttons-group-label">{currentQuestion.question}</FormLabel>
                 <RadioGroup value={answerId}
