@@ -6,11 +6,14 @@ import { quizThunks } from './quizThunks';
 
 
 interface SliceState {
-    quizzes: Quiz[]
+    quizzes: Quiz[],
+    isQuizzedFetched: boolean
 }
 
 const initialState: SliceState = {
-    quizzes: []
+    quizzes: [],
+    isQuizzedFetched: false
+
 }
 const quizSlice = createSlice({
     name: 'quiz',
@@ -19,6 +22,8 @@ const quizSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(quizThunks.fetchQuizzes.fulfilled, (state, action) => {
             state.quizzes.push(...action.payload)
+            state.isQuizzedFetched = true
+
         })
     }
 });

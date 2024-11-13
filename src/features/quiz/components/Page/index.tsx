@@ -10,12 +10,14 @@ interface QuizPageProps {
 
 }
 
+// we will only select  the first quiz we get, selecting quiz is not in the scope of the assignment
 const QuizPageComponent = (props: QuizPageProps) => {
     const quizzes: Quiz[] = useAppSelector((state: RootState) => state.quiz.quizzes)
+    const isQuizzedFetched: boolean = useAppSelector((state: RootState) => state.quiz.isQuizzedFetched)
     const dispatch = useAppDispatch()
 
     useEffect(() => {
-        if (quizzes.length === 0) {
+        if (!isQuizzedFetched) {
             dispatch(quizThunks.fetchQuizzes())
         }
     }, [])
@@ -23,7 +25,7 @@ const QuizPageComponent = (props: QuizPageProps) => {
 
     return (
         <Container maxWidth="md">
-            {quizzes.length === 0 ? <h1>Loading</h1> : < QuizComponent quiz={quizzes[0]} />}
+            {!isQuizzedFetched ? <h1>Loading</h1> : quizzes.length === 0 ? <h1>no quizzes found</h1> : <QuizComponent quiz={quizzes[0]} />}
         </Container>
     )
 }
